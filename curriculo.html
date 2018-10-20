@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Rafael Campos Gonçalves</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="img/rclogo.png" rel="icon">
+	<link rel="stylesheet" type="text/css" href="style/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			font-family: 'Montserrat', sans-serif;
+		}
+		h4{
+			color: #999;
+		}
+		.foto{
+			width: 150px;
+			height: 150px;
+		}
+		.header{
+			background-color: #555;
+			padding: 50px;
+			color: #fff;
+		}
+
+		.sobremim{
+			background-color: #579;
+			padding: 20px;
+			color: #fff;
+			
+		}
+
+		.principal{
+			
+			
+			color: #555;
+			padding-left: 50px;
+			
+		}
+		.principal h3{
+			
+			
+			color: #999;
+			
+		}
+
+		.habilidades>div{
+			
+			margin-bottom: 20px;
+			
+		}
+	</style>
+
+
+	<script type="text/javascript" src="script/jquery.min.js"></script>
+	<script type="text/javascript" src="script/popper.min.js"></script>
+	<script type="text/javascript" src="style/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	<script type="text/javascript" src="dados.js"></script>
+	<script type="text/javascript">
+
+function executar(ev) {
+	// http://stackoverflow.com/questions/7763327/how-to-calculate-date-difference-in-javascript
+	var dia = 14;
+	var mes = 09;
+	var ano = 1983;
+
+	var dataNascimento = new Date(0 + ano, 0 + mes - 1, 0 + dia);
+	var hoje = new Date();
+	var intervalo = hoje - dataNascimento;
+
+	var dias = parseInt((hoje - intervalo) / (24 * 3600 * 1000));
+
+	var d1Y = dataNascimento.getFullYear();
+	var d2Y = hoje.getFullYear();
+	var d1M = dataNascimento.getMonth();
+	var d2M = hoje.getMonth();
+
+	var meses = (d2M+12*d2Y)-(d1M+12*d1Y);
+	var anos = hoje.getFullYear()-dataNascimento.getFullYear();
+	document.getElementById('idade').innerHTML = anos;
+}
+
+
+
+function obterJson() { return dados; }
+function retorna(){
+
+	var txt =  obterJson();
+
+  var obj = JSON.parse(txt);
+
+
+ 	$('#nome').html(obj.nome);
+ 	$('#proficao').html(obj.proficao);
+  	$('#sobre').html(obj.sobre);
+
+}
+
+
+/*
+var dados = dados();
+
+document.getElementById("sobre").innerHTML = dados.sobre;    */
+		
+	</script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body onload="executar(event); retorna()">
+<div class="container-fluid ">
+  <div class="row align-items-center header">
+    <div class="col-md-2">
+    	<img src="img/rafael_curriculo.jpg" class="rounded-circle foto" alt="Cinque Terre">
+    </div>
+    <div class="col-md-4">
+    	<h1 id="nome"></h1>
+    	<h4 id="proficao"></h4>
+    </div>
+    <div class="col-md-4">
+	   <div class="">
+		    	<i class="fas fa-phone"></i>&nbsp;<span>13 981999317</span>
+		    	<br/>
+		    	<i class="fas fa-envelope"></i>&nbsp;<span>mozudos@gmail.com</span>
+		</div>
+    </div>
+    <div class="col-md-2">
+        <img src='https://chart.googleapis.com/chart?cht=qr&chl=https%3A%2F%2Frafaelcamposgoncalves.github.io%2Fportfolio%2F&chs=180x180&choe=UTF-8&chld=L|2' alt='qr code'><a href='http://www.qrcode-generator.de
+        ' border='0' style='cursor:default'  rel='nofollow'></a>
+	</div>
+  </div>
+
+</div>
+<div class="container-fluid sobremim">
+	<div class="container">
+	  <div class="row align-items-center">
+		    <div class="col-md-4" style="text-align: right; border-right: 1px #fff solid; padding-right: 50px;">
+		    	<h3>Sobre<br/>mim</h3>
+		    </div>
+		    <div class="col-md-8" style="padding: 0px 150px;">
+		    	<i class="fas fa-quote-left "></i>
+		    		<span id="sobre"></span>
+		    	<i class="fas fa-quote-right "></i>
+		    </div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="container-fluid">
+	  <div class="row" style="padding: 50px 0px;">
+		    <div class="col-md-4" style="background-color: #eee; padding: 50px;">
+ 
+		    	<h4><i class="fas fa-user"></i> Dados Pessoais</h4>
+		    	<div style="padding:20px;">
+			    	<p>
+			    		Casado,<br/>
+			    		<span id="idade"></span> anos<br/>
+			    		Residindo em: Rua Rubens Rodrigues, nº130, Santa Rosa 3 - Guarujá.
+			    	</p>
+		    	</div> 
+		    	<h4><i class="fas fa-language"></i> Idioma</h4>
+		    	<div style="padding:20px;">
+			    	<p>
+			    		Inglês instrumental
+			    	</p>
+		    	</div> 
+		    	<h4><i class="fas fa-calendar-alt "></i> Cursos e Eventos</h4>
+
+
+		    	<div style="padding:20px;">
+			    	<h5>Curso completo de Desenvolvimento web (Udemy)</h5>
+			    	<p>
+			    		2018
+			    	</p>
+		    	</div>
+		    	<div style="padding:20px;">
+			    	<h5>Curso HTML5 (Udemy)</h5>
+			    	<p>
+			    		2018
+			    	</p>
+		    	</div>
+		    	<div style="padding:20px;">
+			    	<h5>Minicurso Negócios Online & Estilo de Vida (Udemy)</h5>
+			    	<p>
+			    		2018
+			    	</p>
+		    	</div>
+		    	<div style="padding:20px;">
+			    	<h5>Evento QA Week 2018</h5>
+			    	<ul>
+			    		<li>DEV:  A abordagem do QA no processo de desenvolvimento.</li>
+			    		<li>UI/UX: Contribuindo com a qualidade antes do desenvolvimento.</li>
+			    	</ul>
+		    	</div>
+		    </div>
+		    <div class="col-md-8 principal">
+			    <h3><i class="fas fa-user-tie"></i> Objetivo</h3>
+		    	<div style="padding:20px;">
+			    	<p>
+			    		Desenvolvedor Web.
+			    	</p>
+		    	</div>
+			    <h3><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h3>
+		    	<div style="padding:20px;">
+			    	<h5>Técnico em processamento de dados (Finalizado em 2000)</h5>
+			    	<h6>Colégio Adélia Camargo Correia</h6>
+			    	<p>
+			    		Ensimo médio com técnico em processamento de dados.
+			    	</p>
+		    	</div>
+		    	<div style="padding:20px;">
+			    	<h5>Bacharel em sistemas de informação (incompleto 2004)</h5>
+			    	<h6>Faculdade do Guarujá</h6>
+			    	<p>
+			    		Ensino superior de bacharelado em sistemas de informação.
+			    	</p>
+		    	</div>
+
+		    	<h3><i class="fas fa-briefcase"></i> Experiência Profissional</h3>
+		    	<div style="padding:20px;">
+			    	<h5>Estagiário - 2003 à 2004</h5>
+			    	<h6>Companhia de Engenharia de Tráfego (CET)</h6>
+			    	<p>
+			    		Santos
+			    	</p>
+		    	</div>
+		    	<div style="padding:20px;">
+			    	<h5>Auxiliar de Informática - 2005 à 2018</h5>
+			    	<h6>Atacadão S.A</h6>
+			    	<p>
+			    		Guarujá
+			    	</p>
+		    	</div>
+		    	<h3><i class="fas fa-lightbulb"></i> Habilidades</h3>
+					<div class="container-fluid habilidades">
+						<br/>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>HTML5</span> <span class="badge badge-pill badge-dark">65%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar" style="width:65%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>CSS3</span> <span class="badge badge-pill badge-dark">70%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar" style="width:70%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>Javascript</span> <span class="badge badge-pill badge-dark">60%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar" style="width:60%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>PHP</span> <span class="badge badge-pill badge-dark">75%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar" style="width:75%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>Mysql</span> <span class="badge badge-pill badge-dark">55%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar" style="width:65%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>Bootstrap</span> <span class="badge badge-pill badge-dark">85%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar bg-warning" style="width:85%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>JQuery</span> <span class="badge badge-pill badge-dark">50%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar bg-warning" style="width:50%"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="text-align: right;">
+								<div class="col-md-3">
+									<span>Chart Js</span> <span class="badge badge-pill badge-dark">40%</span>
+								</div>
+								<div class="col-md-9">
+									<div class="progress" style="height: 3px;">
+										<div class="progress-bar bg-warning" style="width:50%"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+		    </div>
+
+		</div>
+	</div>
+</div>
+	
+<script src="dados.js"></script>	
+
+</body>
+</html>
